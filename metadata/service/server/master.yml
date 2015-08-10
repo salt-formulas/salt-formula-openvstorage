@@ -1,0 +1,33 @@
+applications:
+  - openvstorage
+parameters:
+  openvstorage:
+    server:
+      enabled: true
+      type: master
+      setup:
+        target:
+          ip: 127.0.0.1
+          auth_method: private_key
+          password: dummy
+        cluster:
+          name: ${_param:ovs_cluster_name}
+          ip: ${_param:single_address}
+          join: True
+          master:
+            ip: ${_param:cluster_master01_address}
+            password: dummy
+        hypervisor:
+          type: KVM
+          name: ${_param:ovs_hypervisor_name}
+          # only for VMWare
+          ip: 127.0.0.1
+          username: dummy
+          password: dummy
+        arakoon:
+          mountpoint: /mnt/db
+        config:
+          auto: False
+          memcached: False
+          rabbitmq: False
+        verbose: True

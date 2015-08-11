@@ -1,10 +1,10 @@
 {% set server = salt['grains.filter_by']({
     'Debian': {
-        'pkgs': ['openvstorage-hc'],
+        'pkgs': ['openvstorage-hc', 'python-novaclient', 'python-glanceclient'],
         'preconfig_file': '/tmp/openvstorage_preconfig.cfg',
     },
     'RedHat': {
-        'pkgs': ['openvstorage-hc'],
+        'pkgs': ['openvstorage-hc', 'python-novaclient', 'python-glanceclient'],
         'preconfig_file': '/tmp/openvstorage_preconfig.cfg',
     },
 }, merge=salt['pillar.get']('openvstorage:server')) %}

@@ -30,4 +30,8 @@ parameters:
           auto: False
           memcached: False
           rabbitmq: False
+        disk:
+          # use default partitioning
+          layout: False
+        other_nodes: False
         verbose: True

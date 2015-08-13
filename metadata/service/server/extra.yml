@@ -22,13 +22,13 @@ parameters:
           type: KVM
           name: ${_param:ovs_hypervisor_name}
           # only for VMWare
-          ip: 127.0.0.1
+          ip: ${_param:single_address}
           username: dummy
           password: dummy
         arakoon:
-          mountpoint: /mnt/db
+          mountpoint: /mnt/cache1
         config:
-          auto: False
+          auto: True
           memcached: False
           rabbitmq: False
         disk:

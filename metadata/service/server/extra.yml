@@ -14,6 +14,7 @@ parameters:
           name: ${_param:ovs_cluster_name}
           ip: ${_param:single_address}
           join: True
+          other_nodes: {}
           master:
             ip: ${_param:cluster_master01_address}
             password: dummy
@@ -33,5 +34,4 @@ parameters:
         disk:
           # use default partitioning
           layout: {}
-        other_nodes: {}
         verbose: True

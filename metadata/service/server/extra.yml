@@ -32,6 +32,6 @@ parameters:
           rabbitmq: False
         disk:
           # use default partitioning
-          layout: False
-        other_nodes: False
+          layout: {}
+        other_nodes: {}
         verbose: True

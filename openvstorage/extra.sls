@@ -7,9 +7,9 @@ include:
 
 setup_ovs_extra:
   cmd.run:
-    - name: "ovs setup extra"
+    - name: "ovs setup extra && touch /opt/OpenvStorage/config/ovs_installed"
     # TODO: avahi may be optional
-    - creates: /etc/avahi/services/ovs_cluster.service
+    - creates: /opt/OpenvStorage/config/ovs_installed
     - require:
       - file: preconfig_file
 

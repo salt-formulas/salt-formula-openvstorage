@@ -15,4 +15,44 @@ preconfig_file:
     - require:
       - pkg: openvstorage_packages
 
+{%- if server.license is defined %}
+license_file:
+  file.managed:
+    - name: {{ server.config_root }}/licenses
+    - content: {{ server.license }}
+    - mode: 664
+    - user: ovs
+    - group: ovs
+    - require:
+      - pkg: openvstorage_packages
+    - require_in:
+      - file: preconfig_file
+{%- endif %}
+
+{%- if not server.setup.config.memcached %}
+memcache_client_config:
+  file.managed:
+    - name: {{ server.config_root }}/memcacheclient.cfg
+    - source: salt://openvstorage/files/memcacheclient.cfg
+    - template: jinja
+    - mode: 640
+    - require:
+      - pkg: openvstorage_packages
+    - require_in:
+      - file: preconfig_file
+{%- endif %}
+
+{%- if not server.setup.config.rabbitmq %}
+rabbitmq_client_config:
+  file.managed:
+    - name: {{ server.config_root }}/rabbitmqclient.cfg
+    - source: salt://openvstorage/files/rabbitmqclient.cfg
+    - template: jinja
+    - mode: 640
+    - require:
+      - pkg: openvstorage_packages
+    - require_in:
+      - file: preconfig_file
+{%- endif %}
+
 {%- endif %}

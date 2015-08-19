@@ -7,9 +7,8 @@ include:
 
 setup_ovs_master:
   cmd.run:
-    - name: "ovs setup master && touch /opt/OpenvStorage/config/ovs_installed"
-    # TODO: avahi may be optional
-    - creates: /opt/OpenvStorage/config/ovs_installed
+    - name: "ovs setup master && echo master > {{ server.config_root }}/ovs_installed"
+    - creates: {{ server.config_root }}/ovs_installed
     - require:
       - file: preconfig_file
 

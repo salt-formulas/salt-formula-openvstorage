@@ -5,6 +5,22 @@ parameters:
     server:
       enabled: true
       type: extra
+      memcache:
+        servers:
+          - name: ${_param:cluster_master01_hostname}
+            address: ${_param:cluster_master01_address}:11211
+          - name: ${_param:cluster_master02_hostname}
+            address: ${_param:cluster_master02_address}:11211
+          - name: ${_param:cluster_master03_hostname}
+            address: ${_param:cluster_master03_address}:11211
+      rabbitmq:
+        servers:
+          - name: ${_param:cluster_master01_hostname}
+            address: ${_param:cluster_master01_address}:5672
+          - name: ${_param:cluster_master02_hostname}
+            address: ${_param:cluster_master02_address}:5672
+          - name: ${_param:cluster_master03_hostname}
+            address: ${_param:cluster_master03_address}:5672
       setup:
         target:
           ip: 127.0.0.1

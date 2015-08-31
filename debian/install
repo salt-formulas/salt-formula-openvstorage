@@ -1,0 +1,2 @@
+openvstorage/*             /usr/share/salt-formulas/env/openvstorage/
+metadata/service/*      /usr/share/salt-formulas/reclass/service/openvstorage/

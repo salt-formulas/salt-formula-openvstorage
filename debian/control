@@ -6,10 +6,10 @@ Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.6
 Homepage: http://www.tcpcloud.eu
 Vcs-Browser: https://github.com/tcpcloud/salt-openvstorage-formula
-Vcs-Git: https://github.com/tcpcloud/salt-openvstorage-formula.git
+Vcs-Git: https://github.com/tcpcloud/salt-formula-openvstorage.git
 
 Package: salt-formula-openvstorage
 Architecture: all
 Depends: ${misc:Depends}, salt-master, reclass
-Description: GlusterFS Salt formula
- Install and configure GlusterFS server and client.
+Description: OpenvStorage Salt formula
+ Install and configure OpenvStorage server.

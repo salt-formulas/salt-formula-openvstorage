@@ -57,6 +57,7 @@ rabbitmq_client_config:
 
 ovs_log_directory:
   file.directory:
+    - name: /var/log/ovs
     - user: ovs
     - group: cinder
     - mode: 750

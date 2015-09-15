@@ -16,7 +16,7 @@ setup_ovs_master:
 setup_allowed_hosts:
   cmd.run:
     - name: |
-        "sed -i 's,^ALLOWED_HOSTS.*,ALLOWED_HOSTS\ =\ \[\"\*\"\],g' /opt/OpenvStorage/webapps/api/settings.py; service ovs-webapp-api restart"
+        sed -i 's,^ALLOWED_HOSTS.*,ALLOWED_HOSTS\ =\ \[\"\*\"\],g' /opt/OpenvStorage/webapps/api/settings.py; service ovs-webapp-api restart
     - unless: "grep -E '^ALLOWED_HOSTS' /opt/OpenvStorage/webapps/api/settings.py | grep '*'"
     - require:
       - cmd: setup_ovs_master

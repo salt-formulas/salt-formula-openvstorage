@@ -205,7 +205,6 @@ Example pillar
            target:
              # this node
              ip: 127.0.0.1
-             auth_method: private_key
              password: dummy
            cluster:
              # cluster informations for joining

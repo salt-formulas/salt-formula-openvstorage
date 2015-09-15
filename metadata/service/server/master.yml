@@ -24,7 +24,6 @@ parameters:
       setup:
         target:
           ip: 127.0.0.1
-          auth_method: private_key
           password: dummy
         cluster:
           name: ${_param:ovs_cluster_name}

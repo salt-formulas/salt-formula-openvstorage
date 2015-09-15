@@ -35,7 +35,7 @@ memcache_client_config:
     - name: {{ server.config_root }}/memcacheclient.cfg
     - source: salt://openvstorage/files/memcacheclient.cfg
     - template: jinja
-    - mode: 640
+    - mode: 644
     - require:
       - pkg: openvstorage_packages
     - require_in:
@@ -48,11 +48,17 @@ rabbitmq_client_config:
     - name: {{ server.config_root }}/rabbitmqclient.cfg
     - source: salt://openvstorage/files/rabbitmqclient.cfg
     - template: jinja
-    - mode: 640
+    - mode: 644
     - require:
       - pkg: openvstorage_packages
     - require_in:
       - file: preconfig_file
 {%- endif %}
+
+ovs_log_directory:
+  file.directory:
+    - user: ovs
+    - group: cinder
+    - mode: 750
 
 {%- endif %}

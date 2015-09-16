@@ -2,9 +2,14 @@
 
 {%- if server.enabled %}
 
+include:
+  - cinder.volume
+
 openvstorage_packages:
   pkg.installed:
     - names: {{ server.pkgs }}
+    - watch_in:
+      - service: cinder_volume_services
 
 preconfig_file:
   file.managed:

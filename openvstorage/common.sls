@@ -11,6 +11,35 @@ openvstorage_packages:
     - watch_in:
       - service: cinder_volume_services
 
+ovs_user:
+  user.present:
+    - name: ovs
+    {%- if not salt['user.info']('ovs') %}
+    - home: /opt/OpenvStorage
+    - system: True
+    - uid: 311
+    - gid: 311
+    - shell: /bin/bash
+    {%- endif %}
+    - require_in:
+      - pkg: openvstorage_packages
+
+ovs_group:
+  group.present:
+    - name: ovs
+    {%- if not salt['group.info']('ovs') %}
+    - system: True
+    - gid: 311
+    {%- endif %}
+    - addusers:
+      - cinder
+    - require_in:
+      - user: ovs_user
+    - require:
+      - pkg: cinder_volume_packages
+    - watch_in:
+      - service: cinder_volume_services
+
 preconfig_file:
   file.managed:
     - name: {{ server.preconfig_file }}
@@ -59,12 +88,5 @@ rabbitmq_client_config:
     - require_in:
       - file: preconfig_file
 {%- endif %}
-
-ovs_log_directory:
-  file.directory:
-    - name: /var/log/ovs
-    - user: ovs
-    - group: cinder
-    - mode: 750
 
 {%- endif %}

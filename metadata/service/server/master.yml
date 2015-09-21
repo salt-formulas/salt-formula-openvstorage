@@ -9,18 +9,24 @@ parameters:
         servers:
           - name: ${_param:cluster_master01_hostname}
             address: ${_param:cluster_master01_address}:11211
+            id: ${_param:cluster_master01_id}
           - name: ${_param:cluster_master02_hostname}
             address: ${_param:cluster_master02_address}:11211
+            id: ${_param:cluster_master02_id}
           - name: ${_param:cluster_master03_hostname}
             address: ${_param:cluster_master03_address}:11211
+            id: ${_param:cluster_master03_id}
       rabbitmq:
         servers:
           - name: ${_param:cluster_master01_hostname}
             address: ${_param:cluster_master01_address}:5672
+            id: ${_param:cluster_master01_id}
           - name: ${_param:cluster_master02_hostname}
             address: ${_param:cluster_master02_address}:5672
+            id: ${_param:cluster_master02_id}
           - name: ${_param:cluster_master03_hostname}
             address: ${_param:cluster_master03_address}:5672
+            id: ${_param:cluster_master03_id}
       setup:
         target:
           ip: 127.0.0.1

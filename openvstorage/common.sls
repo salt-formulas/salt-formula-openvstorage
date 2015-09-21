@@ -89,4 +89,13 @@ rabbitmq_client_config:
       - file: preconfig_file
 {%- endif %}
 
+{%- if server.id is defined %}
+openvstorage_id:
+  file.managed:
+    - name: /etc/openvstorage_id
+    - contents: {{ server.id }}
+    - require_in:
+      - pkg: openvstorage_packages
+{%- endif %}
+
 {%- endif %}

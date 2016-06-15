@@ -1,0 +1,8 @@
+name: openvstorage
+os: Debian, RedHat
+os_family: Debian, RedHat
+version: 201606
+release: 1
+summary: OpenvStorage Salt formula
+description: Install and configure OpenvStorage server.
+top_level_dir: openvstorage

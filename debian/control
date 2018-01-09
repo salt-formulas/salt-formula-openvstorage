@@ -10,6 +10,6 @@ Vcs-Git: https://github.com/tcpcloud/salt-formula-openvstorage.git
 
 Package: salt-formula-openvstorage
 Architecture: all
-Depends: ${misc:Depends}, salt-master, reclass
+Depends: ${misc:Depends}
 Description: OpenvStorage Salt formula
  Install and configure OpenvStorage server.

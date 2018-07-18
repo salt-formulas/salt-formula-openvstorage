@@ -1,3 +1,6 @@
 name: "openvstorage"
 version: "0.2"
 source: "https://github.com/salt-formulas/salt-formula-openvstorage"
+dependencies:
+- name: cinder
+  source: "https://github.com/salt-formulas/salt-formula-cinder"
